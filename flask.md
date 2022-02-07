@@ -1,4 +1,4 @@
-## Running simple Flsk server with self-signed sertificate:
+## Running simple Flask server with self-signed sertificate:
 
 Based on this [great tutorial](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https)
 
@@ -23,3 +23,6 @@ if __name__ == "__main__":
 ```
 
 <img width="959" alt="image" src="https://user-images.githubusercontent.com/1709151/152783410-ccb73de1-bb70-4d07-a8f1-1ee4a056acf9.png">
+
+You also could use `app.run(ssl_context='adhoc')`, but this mean that new certificate will be created every time you run the application.
+We are running the server to experiment with Java application SSL requests, so static certificate is more preferable.
