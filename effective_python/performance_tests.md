@@ -43,10 +43,6 @@ for df_name, df in tqdm(dfs.items()):
 
 ```python
 for df_name, df in tqdm(dfs.items()):
-  all_batches_df = pd.DataFrame(columns=['batch_start_time', 'batch_duration',
-                                          'batch_data_size', 'batch_port',
-                                          'batch_is_incoming', 'batch_number_of_packets',
-                                          'batch_average_packet_size', 'class_name'])
   records = []
   for i, g in tqdm(df.groupby(['batch_number'])):
       batch_start_time = g.iloc[0]['frame.time_epoch']
@@ -55,7 +51,10 @@ for df_name, df in tqdm(dfs.items()):
                                           batch_data_size, batch_port,
                                           batch_is_incoming, batch_number_of_packets,
                                           batch_average_packet_size, class_name])
-  all_batches_df = pd.DataFrame.from_records(records)
+  all_batches_df = pd.DataFrame.from_records(records, columns=['batch_start_time', 'batch_duration',
+                                          'batch_data_size', 'batch_port',
+                                          'batch_is_incoming', 'batch_number_of_packets',
+                                          'batch_average_packet_size', 'class_name'])
 ```
 
 
