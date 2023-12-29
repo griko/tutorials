@@ -1,4 +1,4 @@
-# Colab snippets
+# Colab/Jupiter snippets
 
 ## Download file from colab
 ```python
@@ -112,3 +112,9 @@ def get_clf_and_predictions(df:pd.DataFrame, taget_class:str, model:str, estimat
 clf, y_test, y_pred, scaler, labels = get_clf_and_predictions(combined_datasets_england[f'all_{period}'], taget_class='class_name', model='RF')
 plot_cm(y_test, y_pred, period, labels)
 ```
+
+## Issues
+- If you get more rows in the merged df than the original even when using `how='inner'`, check if you have duplicates in the key column. If so, remove them before merging.
+- If you subtract two dates and get a negative number, chech if the year is 4 digits long. If the year is 2 digits long and greater than `68`, pandas will assume it's 1900 and 2000 otherwise. To fix this, use `pd.to_datetime(df['date'], format='%d/%m/%Y')` to convert the date column to datetime.
+- If using jupyer in PyCharm, after the update of out-of-notebook code - restart the kernel.
+- To install local package in debug mode, use `pip install -e .` in the package directory.
