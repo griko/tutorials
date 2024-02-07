@@ -39,3 +39,30 @@
 .read-the-docs {
   color: #888;
 }
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.menu-item label {
+  font-weight: bold;
+}
+
+.menu-item input {
+  width: 100%;
+}
